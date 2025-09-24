@@ -1,0 +1,25 @@
+name: CI
+on:
+  pull_request:
+    branches: [ main ]
+
+jobs:
+  build:
+    name: Build and Run Java Hello World
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v3
+
+      - name: Set up JDK
+      - uses: actions/setup-java@v5
+        with:
+          java-version: '8'
+
+      - name: Compile Java
+        run: HelloWorld.java
+
+      - name: Run Java
+        run: java HelloWorld
+
+      
